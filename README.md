@@ -1,5 +1,7 @@
 # React Firebase Auth
 
+If you find this skeleton useful, please leave a star. I appreciate your help.
+
 This is a simple app skeleton.
 
 Created using:<br>
