@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Card, CardContent, Grid, TextField } from '@material-ui/core';
 import { inject, observer } from 'mobx-react';
 import { IUserStore } from '../../stores/UserStore';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AppRoutes } from '../AppRoutes';
 import './Auth.css';
 
@@ -26,7 +26,7 @@ export default class Login extends React.Component<ILoginProps, ILoginState> {
 
     public render() {
         if (this.props.loggedIn) {
-            return <Redirect to={AppRoutes.homeRoute} />;
+            return <Navigate replace to={AppRoutes.homeRoute} />
         }
 
         return (

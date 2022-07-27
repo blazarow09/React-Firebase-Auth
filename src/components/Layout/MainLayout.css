@@ -1,0 +1,11 @@
+h4,
+.log-out-btn{
+    display: inline-block !important;
+    margin-right: 20px !important;
+    margin-top: 15px !important;
+    float: right;
+}
+
+h4 {
+    margin-top: 17px !important;
+}

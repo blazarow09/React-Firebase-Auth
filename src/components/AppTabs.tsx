@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { Button } from '@material-ui/core';
 import { inject, observer } from 'mobx-react';
-import { Redirect } from 'react-router-dom';
+import { Route, Routes as Switch } from 'react-router-dom';
 import { IUserStore } from '../stores/UserStore';
 import { AppRoutes } from './AppRoutes';
 import './App.css';
+import MainLayout from './Layout/MainLayout';
+import Posts from './Posts/Posts';
+// import { Redirect } from 'react-router';
 
 interface IAppTabsProps {
     userId: string;
@@ -16,18 +18,18 @@ interface IAppTabsProps {
 @observer
 export default class AppTabs extends React.Component<IAppTabsProps> {
     public render() {
-        if (!this.props.loggedIn) {
-            return <Redirect to={AppRoutes.loginRoute} />;
-        }
+        // if (!this.props.loggedIn) {
+        //     return <Redirect to={AppRoutes.loginRoute} />;
+        // }
 
         return (
             // Here comes your private content.
             <div className="r-private-content">
-                <h1>Private content</h1>
-                <h2>Welcome, {window.authContext.email}</h2>
-                <Button variant="outlined" onClick={async (): Promise<void> => await this.props.userStore.handleLogout()}>
-                    Log out
-                </Button>
+                <Switch>
+                    <Route element={<MainLayout userId={this.props.userId} loggedIn={this.props.loggedIn} />}>
+                        <Route path={AppRoutes.postsHome} element={<Posts />} />
+                    </Route>
+                </Switch>
             </div>
         );
     }

@@ -4,14 +4,12 @@ import 'firebase/firestore';
 import 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: 'YOUR KEY',
-    authDomain: 'YOUR KEY',
-    databaseURL: 'YOUR KEY',
-    projectId: 'YOUR KEY',
-    storageBucket: 'YOUR KEY',
-    messagingSenderId: 'YOUR KEY',
-    appId: 'YOUR KEY',
-    measurementId: 'YOUR KEY',
+    apiKey: "AIzaSyC-BM82k6hEktSdPzEQ6DcPDNVXATO1phE",
+    authDomain: "react-hooks-app-adcb7.firebaseapp.com",
+    projectId: "react-hooks-app-adcb7",
+    storageBucket: "react-hooks-app-adcb7.appspot.com",
+    messagingSenderId: "317851459181",
+    appId: "1:317851459181:web:a3eb89716a23f720d66964"
 };
 
 const firebaseApp = firebase.default.initializeApp(firebaseConfig);

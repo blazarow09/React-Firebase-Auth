@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Card, Grid, TextField, Button, CardContent } from '@material-ui/core';
 import { inject, observer } from 'mobx-react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { IUserStore } from '../../stores/UserStore';
 import { AppRoutes } from '../AppRoutes';
 import './Auth.css';
@@ -28,7 +28,7 @@ export default class Register extends React.Component<IRegisterProps, IRegisterS
 
     public render() {
         if (this.props.loggedIn) {
-            return <Redirect to={AppRoutes.homeRoute} />;
+            return <Navigate replace to={AppRoutes.homeRoute} />
         }
 
         return (
