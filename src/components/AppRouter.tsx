@@ -8,6 +8,7 @@ import Register from './Authentication/Register';
 import MainLayout from './Layout/MainLayout';
 import Home from './Home/Home';
 import ButtonsContainer from './Buttons/ButtonsContainer';
+import HookExamples from './HookExamples/HookExamples';
 
 const AppRouter: React.FC = () => {
     const { loggedIn, userId, email } = useAuth();
@@ -33,6 +34,7 @@ const AppRouter: React.FC = () => {
                         {/* Private Routes */}
                         <Route path={AppRoutes.homeRoute} element={loggedIn ? <Home /> : <Navigate replace to={AppRoutes.loginRoute} />} />
                         <Route path={AppRoutes.buttonsContainerRoute} element={loggedIn ? <ButtonsContainer /> : <Navigate replace to={AppRoutes.loginRoute} />} />
+                        <Route path={AppRoutes.hooksExampleRoute} element={loggedIn ? <HookExamples /> : <Navigate replace to={AppRoutes.loginRoute} />} />
                         {/* Private Routes */}
 
                         <Route path='*' element={<Navigate replace to={loggedIn ? AppRoutes.homeRoute : AppRoutes.loginRoute} />} />

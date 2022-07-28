@@ -29,6 +29,9 @@ export default class LayoutBase extends React.Component<IMainLayoutProps> {
                             <Button className="nav-btn" variant="outlined" size="small" component={Link} to={AppRoutes.buttonsContainerRoute}>
                                 Buttons
                             </Button>
+                            <Button className="nav-btn" variant="outlined" size="small" component={Link} to={AppRoutes.hooksExampleRoute}>
+                                Hooks
+                            </Button>
                         </Col>
                         <Col span={6}>
 

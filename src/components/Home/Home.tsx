@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import { Col, Row, Table } from "antd";
 import movieDataFile from '../../stores/movieNames.json';
 import Search from "antd/lib/input/Search";
@@ -56,7 +56,6 @@ const Home: React.FC = () => {
                     <Table dataSource={listData} columns={columns} />
                 </Col>
             </Row>
-
         </>
     }
 }

@@ -9,5 +9,6 @@ export class AppRoutes {
     // Main
     static postsHome = AppRoutes.prefixMyRoute + '/posts'
     static buttonsContainerRoute = AppRoutes.prefixMyRoute + '/buttons'
+    static hooksExampleRoute = AppRoutes.prefixMyRoute + '/hooks'
 
 }
