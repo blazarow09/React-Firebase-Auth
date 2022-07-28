@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row, Table } from "antd";
 import movieDataFile from '../../stores/movieNames.json';
 import Search from "antd/lib/input/Search";
@@ -13,7 +13,6 @@ const columns = [
 ]
 
 const Home: React.FC = () => {
-    // DEMO
     const [listData, setListData] = useState([])
     const [searchQuery, setSearchQuery] = useState('')
 
