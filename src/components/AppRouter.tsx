@@ -7,7 +7,7 @@ import Login from './Authentication/Login';
 import Register from './Authentication/Register';
 import MainLayout from './Layout/MainLayout';
 import Home from './Home/Home';
-import Posts from './Posts/Posts';
+import ButtonsContainer from './Buttons/ButtonsContainer';
 
 const AppRouter: React.FC = () => {
     const { loggedIn, userId, email } = useAuth();
@@ -32,11 +32,10 @@ const AppRouter: React.FC = () => {
 
                         {/* Private Routes */}
                         <Route path={AppRoutes.homeRoute} element={loggedIn ? <Home /> : <Navigate replace to={AppRoutes.loginRoute} />} />
-                        <Route path={AppRoutes.postsHome} element={loggedIn ? <Posts /> : <Navigate replace to={AppRoutes.loginRoute} />} />
+                        <Route path={AppRoutes.buttonsContainerRoute} element={loggedIn ? <ButtonsContainer /> : <Navigate replace to={AppRoutes.loginRoute} />} />
                         {/* Private Routes */}
 
-                        {/* <Route path={AppRoutes.postsHome + '/*'} element={<AppTabs userId={userId} loggedIn={loggedIn} />} /> */}
-                        <Route path='*' element={<Navigate replace to={AppRoutes.loginRoute} />} />
+                        <Route path='*' element={<Navigate replace to={loggedIn ? AppRoutes.homeRoute : AppRoutes.loginRoute} />} />
                     </Route>
                 </Switch>
             </Router>

@@ -21,7 +21,7 @@ export function useAuthInit(): IAuthInit {
     let auth: IAuthContext = { loggedIn: false };
     try {
         useEffect(() => {
-            return firebaseAuth.onAuthStateChanged((firebaseUser): void => {
+            return firebaseAuth.onAuthStateChanged((firebaseUser): void => { // Observer
                 auth = firebaseUser ? { loggedIn: true, userId: firebaseUser.uid, email: firebaseUser.email } : { loggedIn: false };
 
                 setAuthInit({ isLoading: false, auth: auth });

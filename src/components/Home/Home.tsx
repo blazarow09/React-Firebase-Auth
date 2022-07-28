@@ -1,25 +1,64 @@
-import React from "react";
-import { Button } from "@material-ui/core";
-import { Navigate, useNavigate } from "react-router";
-import { AppRoutes } from "../AppRoutes";
+import React, { useEffect, useState } from "react";
+import { Col, Row, Table } from "antd";
+import movieDataFile from '../../stores/movieNames.json';
+import Search from "antd/lib/input/Search";
 import './Home.css';
-// import { useHistory } from "react-router";
+
+const columns = [
+    {
+        name: 'name',
+        dataIndex: 'name',
+        key: 'name',
+    }
+]
 
 const Home: React.FC = () => {
     // DEMO
-    const navigate = useNavigate();
-    // const history = useHistory();
+    const [listData, setListData] = useState([])
+    const [searchQuery, setSearchQuery] = useState('')
 
-    function goToPosts(): void {
-        navigate(AppRoutes.postsHome);
-        // history.push(AppRoutes.)
+    function setMovieData() {
+        const data = movieDataFile.map((m: any, index: number) => {
+            return {
+                name: m.name,
+                dataIndex: index,
+                key: index
+            }
+        });
+
+        setListData(data);
     }
 
-    return (
-        <Button variant="outlined" onClick={() => goToPosts()} >
-            Go to Posts
-        </Button>
-    )
+    useEffect(() => {
+        setMovieData();
+    }, []);
+
+    useEffect(() => {
+        if (searchQuery.length > 0) {
+            const matches = listData.filter((x) => x.name.toLowerCase().includes(searchQuery.toLowerCase()))
+
+            setListData(matches);
+        } else {
+            setMovieData();
+        }
+    }, [searchQuery]);
+
+    {
+        return <>
+            <Row>
+                <Col span={16} offset={4}>
+                    <Row justify="end">
+                        <Col span={8}>
+                            <Search className="search-field" placeholder="Type to search in the list" onChange={(input) => setSearchQuery(input.currentTarget.value)} />
+                        </Col>
+                    </Row>
+
+                    <Table dataSource={listData} columns={columns} />
+                </Col>
+            </Row>
+
+        </>
+    }
 }
 
 export default Home;

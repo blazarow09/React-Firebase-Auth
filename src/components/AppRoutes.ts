@@ -6,7 +6,8 @@ export class AppRoutes {
     static loginRoute = '/login';
     static registerRoute = '/register';
     
-    // Posts
+    // Main
     static postsHome = AppRoutes.prefixMyRoute + '/posts'
+    static buttonsContainerRoute = AppRoutes.prefixMyRoute + '/buttons'
 
 }
